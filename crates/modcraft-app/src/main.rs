@@ -11,6 +11,7 @@ struct Args {
 
 pub struct ModCraftApp {
     engine: ModEngine,
+    locale: modcraft_core::i18n::AppLocale,
     status_msg: String,
 
     // Desktop UI Standard Controls
@@ -26,6 +27,7 @@ impl ModCraftApp {
     pub fn new() -> Self {
         Self {
             engine: ModEngine::new(),
+            locale: modcraft_core::i18n::AppLocale::default(),
             status_msg: "Parametric ModCraft Engine Ready (Port 14120)".to_string(),
 
             is_dark_theme: true,
@@ -113,6 +115,17 @@ impl eframe::App for ModCraftApp {
 
                 // Right quick toggles
                 ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
+                    let cur_loc = self.locale;
+                    let label = format!("{} {}", cur_loc.flag(), cur_loc.code().to_uppercase());
+                    egui::ComboBox::from_id_salt("topbar_locale_selector")
+                        .selected_text(label)
+                        .show_ui(ui, |ui| {
+                            for loc_item in modcraft_core::i18n::AppLocale::all() {
+                                let text = format!("{} {}", loc_item.flag(), loc_item.display_name());
+                                let _ = ui.selectable_value(&mut self.locale, *loc_item, text);
+                            }
+                        });
+
                     let theme_icon = if self.is_dark_theme { "🌙 Dark" } else { "☀ Light" };
                     if ui.button(theme_icon).clicked() {
                         self.is_dark_theme = !self.is_dark_theme;

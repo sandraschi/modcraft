@@ -3,6 +3,8 @@
 //! Provides parametric assembly graphs, BOM (Bill of Materials) generation,
 //! and design version tracking backed by DatabaseCraft.
 
+pub mod i18n;
+
 use serde::{Deserialize, Serialize};
 use thiserror::Error;
 use modcraft_geometry::{GeometryEngine, SolidBody};
