@@ -1,9 +1,9 @@
 use clap::{Parser, Subcommand};
-use cadcraft_core::CadEngine;
-use cadcraft_geometry::GeometryEngine;
+use modcraft_core::ModEngine;
+use modcraft_geometry::GeometryEngine;
 
 #[derive(Parser)]
-#[command(name = "cadcraft-cli", about = "CADCraft Sovereign Parametric CAD & BOM CLI")]
+#[command(name = "modcraft-cli", about = "ModCraft Sovereign Parametric CAD & BOM CLI")]
 struct Cli {
     #[command(subcommand)]
     command: Commands,
@@ -26,7 +26,7 @@ enum Commands {
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let cli = Cli::parse();
-    let engine = CadEngine::new();
+    let engine = ModEngine::new();
 
     match cli.command {
         Commands::Solids => {

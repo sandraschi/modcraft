@@ -1,21 +1,21 @@
 [package]
-name = "cadcraft-app"
+name = "modcraft-app"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
 authors.workspace = true
 
 [[bin]]
-name = "cadcraft"
+name = "modcraft"
 path = "src/main.rs"
 
 [[bin]]
-name = "cadcraft-cli"
+name = "modcraft-cli"
 path = "src/cli.rs"
 
 [dependencies]
-cadcraft-core = { path = "../cadcraft-core" }
-cadcraft-geometry = { path = "../cadcraft-geometry" }
+modcraft-core = { path = "../modcraft-core" }
+modcraft-geometry = { path = "../modcraft-geometry" }
 eframe.workspace = true
 egui.workspace = true
 clap.workspace = true

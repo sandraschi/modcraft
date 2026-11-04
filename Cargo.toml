@@ -1,10 +1,10 @@
 [workspace]
 resolver = "2"
 members = [
-    "crates/cadcraft-geometry",
-    "crates/cadcraft-core",
-    "crates/cadcraft-mcp",
-    "crates/cadcraft-app",
+    "crates/modcraft-geometry",
+    "crates/modcraft-core",
+    "crates/modcraft-mcp",
+    "crates/modcraft-app",
 ]
 
 [workspace.package]

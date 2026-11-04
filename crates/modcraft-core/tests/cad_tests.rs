@@ -1,8 +1,8 @@
-use cadcraft_core::CadEngine;
-use cadcraft_geometry::GeometryEngine;
+use modcraft_core::ModEngine;
+use modcraft_geometry::GeometryEngine;
 
 #[test]
-fn test_cadcraft_primitives() {
+fn test_modcraft_primitives() {
     let cube = GeometryEngine::create_cuboid("C-1", "Test Cube", 10.0, 10.0, 10.0);
     assert_eq!(cube.volume_mm3, 1000.0);
     assert_eq!(cube.surface_area_mm2, 600.0);
@@ -14,8 +14,8 @@ fn test_cadcraft_primitives() {
 }
 
 #[test]
-fn test_cadcraft_bom_generation() {
-    let engine = CadEngine::new();
+fn test_modcraft_bom_generation() {
+    let engine = ModEngine::new();
     let bom = engine.generate_bom().expect("bom generation");
     assert_eq!(bom.total_components, 2);
     assert!(bom.total_mass_kg > 0.0);

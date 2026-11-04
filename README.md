@@ -1,6 +1,6 @@
-# CADCraft
+# ModCraft
 
-**CADCraft** is an ArtCraft-tier sovereign parametric 3D CAD, constructive solid geometry (CSG), and automated Bill of Materials (BOM) synthesis engine running natively on Goliath with zero cloud dependencies.
+**ModCraft** is an ArtCraft-tier sovereign parametric 3D solid modeling, constructive solid geometry (CSG), and automated Bill of Materials (BOM) synthesis engine running natively on Goliath with zero cloud dependencies.
 
 Features:
 - **Parametric Solid Modeling**: Cuboids, cylinders, spheres, and 2D profile extrusions with volume and surface area calculations.
@@ -12,10 +12,10 @@ Features:
 
 ## Workspace Architecture
 
-1. `crates/cadcraft-geometry`: CSG geometry primitives, mesh volume/surface integrators, and manifold validators.
-2. `crates/cadcraft-core`: Assembly feature graphs, BOM synthesizer, and DatabaseCraft persistence.
-3. `crates/cadcraft-mcp`: FastMCP JSON-RPC server on port `14120`.
-4. `crates/cadcraft-app`: Native GUI (`eframe`/`egui`) and CLI tool (`cadcraft-cli`).
+1. `crates/modcraft-geometry`: CSG geometry primitives, mesh volume/surface integrators, and manifold validators.
+2. `crates/modcraft-core`: Assembly feature graphs, BOM synthesizer, and DatabaseCraft persistence.
+3. `crates/modcraft-mcp`: FastMCP JSON-RPC server on port `14120`.
+4. `crates/modcraft-app`: Native GUI (`eframe`/`egui`) and CLI tool (`modcraft-cli`).
 
 ---
 
@@ -26,10 +26,10 @@ Features:
 cargo test
 
 # Headless smoke test
-./target/debug/cadcraft.exe --smoke
+./target/debug/modcraft.exe --smoke
 
 # CLI Operations
-./target/debug/cadcraft-cli.exe solids
-./target/debug/cadcraft-cli.exe bom
-./target/debug/cadcraft-cli.exe cube "Enclosure Box" 120.0 80.0 40.0
+./target/debug/modcraft-cli.exe solids
+./target/debug/modcraft-cli.exe bom
+./target/debug/modcraft-cli.exe cube "Enclosure Box" 120.0 80.0 40.0
 ```

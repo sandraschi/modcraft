@@ -1,14 +1,14 @@
-//! CADCraft Core Engine
+//! ModCraft Core Engine
 //!
 //! Provides parametric assembly graphs, BOM (Bill of Materials) generation,
 //! and design version tracking backed by DatabaseCraft.
 
 use serde::{Deserialize, Serialize};
 use thiserror::Error;
-use cadcraft_geometry::{GeometryEngine, SolidBody};
+use modcraft_geometry::{GeometryEngine, SolidBody};
 
 #[derive(Error, Debug)]
-pub enum CadError {
+pub enum ModError {
     #[error("Geometry error: {0}")]
     Geometry(String),
 }
@@ -29,11 +29,11 @@ pub struct BillOfMaterials {
     pub items: Vec<AssemblyComponent>,
 }
 
-pub struct CadEngine {
+pub struct ModEngine {
     pub active_solids: Vec<SolidBody>,
 }
 
-impl CadEngine {
+impl ModEngine {
     pub fn new() -> Self {
         let mounting_bracket = GeometryEngine::create_cuboid("BRACKET-01", "Aluminium NEMA23 Bracket", 80.0, 60.0, 8.0);
         let guide_shaft = GeometryEngine::create_cylinder("SHAFT-01", "Precision Linear Rod", 6.0, 300.0);
@@ -43,13 +43,12 @@ impl CadEngine {
         }
     }
 
-    pub fn generate_bom(&self) -> Result<BillOfMaterials, CadError> {
+    pub fn generate_bom(&self) -> Result<BillOfMaterials, ModError> {
         let mut items = Vec::new();
         let mut total_mass = 0.0;
         let mut total_count = 0;
 
         for solid in &self.active_solids {
-            // Material density: 2.7 g/cm^3 for Al 6061; 7.85 g/cm^3 for Carbon Steel
             let (mat, density) = if solid.name.contains("Aluminium") {
                 ("Aluminium 6061-T6".to_string(), 0.0000027)
             } else {

@@ -1,33 +1,33 @@
 use clap::Parser;
 use serde_json::json;
-use cadcraft_core::CadEngine;
+use modcraft_core::ModEngine;
 
 #[derive(Parser, Debug)]
-#[command(name = "cadcraft", about = "CADCraft Parametric Solid Modeling Studio")]
+#[command(name = "modcraft", about = "ModCraft Parametric Solid Modeling Studio")]
 struct Args {
     #[arg(long)]
     smoke: bool,
 }
 
-pub struct CadCraftApp {
-    engine: CadEngine,
+pub struct ModCraftApp {
+    engine: ModEngine,
     status_msg: String,
 }
 
-impl CadCraftApp {
+impl ModCraftApp {
     pub fn new() -> Self {
         Self {
-            engine: CadEngine::new(),
-            status_msg: "Parametric CAD Engine Ready (Port 14120)".to_string(),
+            engine: ModEngine::new(),
+            status_msg: "Parametric ModCraft Engine Ready (Port 14120)".to_string(),
         }
     }
 }
 
-impl eframe::App for CadCraftApp {
+impl eframe::App for ModCraftApp {
     fn ui(&mut self, ui: &mut egui::Ui, _frame: &mut eframe::Frame) {
         egui::Panel::top("top_panel").show(ui, |ui| {
             ui.horizontal(|ui| {
-                ui.heading("📐 CADCraft — Sovereign Parametric 3D Solid Studio");
+                ui.heading("📐 ModCraft — Sovereign Parametric 3D Solid Studio");
                 ui.separator();
                 ui.label(&self.status_msg);
             });
@@ -70,11 +70,11 @@ impl eframe::App for CadCraftApp {
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args = Args::parse();
     if args.smoke {
-        println!("[cadcraft] Running headless smoke verification...");
-        let engine = CadEngine::new();
+        println!("[modcraft] Running headless smoke verification...");
+        let engine = ModEngine::new();
         let bom = engine.generate_bom()?;
         let smoke_payload = json!({
-            "app": "cadcraft",
+            "app": "modcraft",
             "version": "0.1.0",
             "status": "ready",
             "control_port": 14120,
@@ -83,20 +83,20 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             "total_mass_kg": bom.total_mass_kg,
             "capabilities": ["ParametricSolidModeling", "CSGPrimitiveOperations", "ManifoldMeshValidation", "AutomatedBOMSynthesis"]
         });
-        println!("[cadcraft] Smoke OK: {}", smoke_payload);
+        println!("[modcraft] Smoke OK: {}", smoke_payload);
         return Ok(());
     }
 
-    let app = CadCraftApp::new();
+    let app = ModCraftApp::new();
     let native_options = eframe::NativeOptions {
         viewport: egui::ViewportBuilder::default()
             .with_inner_size([1280.0, 800.0])
-            .with_title("CADCraft — Parametric Solid Studio"),
+            .with_title("ModCraft — Parametric Solid Studio"),
         ..Default::default()
     };
 
     eframe::run_native(
-        "CADCraft",
+        "ModCraft",
         native_options,
         Box::new(|_cc| Ok(Box::new(app))),
     )?;

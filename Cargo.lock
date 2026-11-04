@@ -230,61 +230,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fc652a48c352aef3ea3aed32080501cf3ef6ed5da78602a020c991775b0aff04"
 
 [[package]]
-name = "cadcraft-app"
-version = "0.1.0"
-dependencies = [
- "cadcraft-core",
- "cadcraft-geometry",
- "chrono",
- "clap",
- "eframe",
- "egui",
- "serde",
- "serde_json",
- "thiserror 2.0.21",
- "tokio",
-]
-
-[[package]]
-name = "cadcraft-core"
-version = "0.1.0"
-dependencies = [
- "cadcraft-geometry",
- "chrono",
- "databasecraft-core",
- "databasecraft-store",
- "rusqlite",
- "serde",
- "serde_json",
- "thiserror 2.0.21",
- "tokio",
-]
-
-[[package]]
-name = "cadcraft-geometry"
-version = "0.1.0"
-dependencies = [
- "chrono",
- "serde",
- "serde_json",
- "thiserror 2.0.21",
- "tokio",
-]
-
-[[package]]
-name = "cadcraft-mcp"
-version = "0.1.0"
-dependencies = [
- "cadcraft-core",
- "cadcraft-geometry",
- "chrono",
- "serde",
- "serde_json",
- "thiserror 2.0.21",
- "tokio",
-]
-
-[[package]]
 name = "calloop"
 version = "0.13.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1277,6 +1222,61 @@ dependencies = [
  "libc",
  "wasi",
  "windows-sys 0.61.2",
+]
+
+[[package]]
+name = "modcraft-app"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "clap",
+ "eframe",
+ "egui",
+ "modcraft-core",
+ "modcraft-geometry",
+ "serde",
+ "serde_json",
+ "thiserror 2.0.21",
+ "tokio",
+]
+
+[[package]]
+name = "modcraft-core"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "databasecraft-core",
+ "databasecraft-store",
+ "modcraft-geometry",
+ "rusqlite",
+ "serde",
+ "serde_json",
+ "thiserror 2.0.21",
+ "tokio",
+]
+
+[[package]]
+name = "modcraft-geometry"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "serde",
+ "serde_json",
+ "thiserror 2.0.21",
+ "tokio",
+]
+
+[[package]]
+name = "modcraft-mcp"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "modcraft-core",
+ "modcraft-geometry",
+ "serde",
+ "serde_json",
+ "thiserror 2.0.21",
+ "tokio",
 ]
 
 [[package]]
