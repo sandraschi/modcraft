@@ -34,6 +34,16 @@ cargo test
 ./target/debug/modcraft-cli.exe cube "Enclosure Box" 120.0 80.0 40.0
 ```
 
+## Status — does today / next week / non-goals
+
+**Does today:** 4-crate Rust workspace (geometry/core split), CSG + BOM
+verbs declared, 2 test fns.
+
+**Next week:** kernel build-vs-wrap decision + SolidCraft relationship in
+writing; primitive-volume + boolean-union tests; primitive-bom recipe.
+
+**Non-goals:** no 2D drafting or PCB at v1 (solids → BOM first).
+
 ## Lineage — the Storytold craft-app pattern
 
 Storytold ArtCraft ([storytold/artcraft](https://github.com/storytold/artcraft) — "the IDE for artists") was the starting point. The 16 craft apps in the Storytold stable each ship one binary that is both the human CLI and the agent MCP server (stdio), headless-first, with `run.json` + report artifacts. That modus operandi and harness is what this repo implements; the code here is independent, the pattern is shared.
