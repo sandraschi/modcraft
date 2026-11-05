@@ -3,7 +3,7 @@ use modcraft_core::ModEngine;
 use modcraft_geometry::GeometryEngine;
 
 #[derive(Parser)]
-#[command(name = "modcraft-cli", about = "ModCraft Sovereign Parametric CAD & BOM CLI")]
+#[command(name = "modcraft-cli", about = "ModCraft Local Parametric CAD & BOM CLI")]
 struct Cli {
     #[command(subcommand)]
     command: Commands,

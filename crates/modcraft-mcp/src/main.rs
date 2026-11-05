@@ -9,7 +9,7 @@ use modcraft_core::ModEngine;
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let port: u16 = 14120;
-    println!("[modcraft-mcp] Initializing Sovereign Parametric Modeling FastMCP engine on port {}...", port);
+    println!("[modcraft-mcp] Initializing Local Parametric Modeling FastMCP engine on port {}...", port);
 
     let engine = ModEngine::new();
     let bom = engine.generate_bom()?;

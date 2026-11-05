@@ -1,6 +1,6 @@
 # ModCraft
 
-**ModCraft** is an ArtCraft-tier sovereign parametric 3D solid modeling, constructive solid geometry (CSG), and automated Bill of Materials (BOM) synthesis engine running natively on Goliath with zero cloud dependencies.
+**ModCraft** is an ArtCraft-tier local-first parametric 3D solid modeling, constructive solid geometry (CSG), and automated Bill of Materials (BOM) synthesis engine running natively on Goliath with zero cloud dependencies.
 
 Features:
 - **Parametric Solid Modeling**: Cuboids, cylinders, spheres, and 2D profile extrusions with volume and surface area calculations.

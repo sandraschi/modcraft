@@ -144,7 +144,7 @@ impl eframe::App for ModCraftApp {
                 .collapsible(false)
                 .resizable(false)
                 .show(ui.ctx(), |ui| {
-                    ui.label("Enter sovereign credentials:");
+                    ui.label("Enter local credentials:");
                     ui.horizontal(|ui| {
                         ui.label("Username:");
                         ui.text_edit_singleline(&mut self.auth_username);
